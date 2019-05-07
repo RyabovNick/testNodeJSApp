@@ -3,7 +3,9 @@ const express = require("express");
 const app = express();
 const pool = require("./config/config");
 const bodyParser = require("body-parser");
+const cors = require('cors')
 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -72,6 +74,6 @@ app.route("/api/students/:n_z").get((req, res) => {
   );
 });
 
-app.listen(8080, () => {
+app.listen(8081, () => {
   console.log("Server started");
 });
